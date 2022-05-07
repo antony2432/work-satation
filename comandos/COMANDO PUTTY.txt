@@ -1,0 +1,28 @@
+MOSTRAR ONT ONLINE
+display mac-address all		
+display mac-address all | include 6cbf
+display mac-address port 0/4/6 ont 54
+
+
+REVISAR NIVELES EN PUERTO Y TARJETA
+interface gpon 0/4
+display ont optical-info 6 all
+
+VISUALIZAR PUERTO E ID DE LA ONU
+display ont info by-sn 54504C472A566BA0
+
+Mostrar todos los dispositivos ONT configurados
+display ont info 0 6 11 all
+display ont info summary 0/5
+display service-port all
+
+
+Muestre el módulo físico instalado en el chasis OLT de Huawei
+display board 0
+
+Mostrar módulo específico instalado
+display board 0/SlotID
+display board 0/5
+
+https://splynx.com/4018/huawei-gpon-configuration/
+

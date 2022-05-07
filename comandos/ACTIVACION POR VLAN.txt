@@ -1,0 +1,39 @@
+usuario: lmarinez
+clave  : Lmarinez+735
+display ont info by-sn 5A544547CF51EAB7
+display service-port port 0/18/0 ont 14
+display mac-address all | include 3708
+undo service-port 4703
+interface gpon 0/18
+ont delete 0 14
+
+display ont autofind all
+
+**************PLAN DE 30 MPBS*********
+interface gpon 0/18
+ont confirm 0 sn-auth 5A544547CF51EAB7 omci ont-lineprofile-id 30 ont-srvprofile-id 30
+
+
+service-port vlan 30 gpon 0/18/0 ont 14 gemport 14 multi-service user-vlan 1001 tag-transform translate inbound traffic-table index 30 outbound traffic-table index 30
+
+******PLAN DE 50 MPBS****************
+interface gpon 0/19 
+ont confirm 2 sn-auth 54504C47B7775370 omci ont-lineprofile-id 50 ont-srvprofile-id 50
+
+service-port vlan 50 gpon 0/2/2 ont 11 gemport 14 multi-service user-vlan 1001 tag-transform translate inbound traffic-table index 50 outbound traffic-table index 50
+
+******PLAN DE 80 MPBS****************
+interface gpon 0/6
+ont confirm 3 sn-auth 4857544307DBD692      omci ont-lineprofile-id 80 ont-srvprofile-id 80
+
+service-port vlan 80 gpon 0/6/3 ont 62 gemport 14 multi-service user-vlan 1001 tag-transform translate inbound traffic-table index 80 outbound traffic-table index 80
+
+******PLAN DE 100 MPBS****************
+interface gpon 0/18
+ont confirm 0 sn-auth 5A544547CF51EAB7 omci ont-lineprofile-id 100 ont-srvprofile-id 100
+
+service-port vlan 100 gpon 0/18/0 ont 14 gemport 14 multi-service user-vlan 1001 tag-transform translate inbound traffic-table index 100 outbound traffic-table index 100
+
+
+
+

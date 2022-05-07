@@ -1,0 +1,41 @@
+SN DE REDXON - PLANTILLA
+52454458DD2937D0
+
+SN DE TENDA - PLANTILLA
+54445443      544454433516EA10
+
+SN DE FIBERTRONIX - PLANTILLA-MAC
+4F454D54	4F454D543C27A6C4
+
+REDXON	admin 
+PASWORD	YnQtcG9u
+
+lmartinez
+Lmartinez+735
+
+usuario: lmarinez
+clave  : Lmarinez+735
+diego2019
+diego2019#
+
+display ont autofind all
+----------------------------------------------
+interface gpon 0/1
+
+ont confirm 10 sn-auth 4F454D543C274E14 omci ont-lineprofile-id 1 ont-srvprofile-id 1
+
+service-port vlan 100 gpon 0/1/10 ont 4 gemport 14 multi-service user-vlan 1001 tag-transform translate inbound traffic-table index 7 outbound traffic-table index 7
+-------------------------------------------------
+BUSCAR ONU
+
+display ont info by-sn 48575443064eb592
+
+display service-port port 0/19/1 ont 22	
+
+ELIMINAR SERVICIOS E INTERFACE
+undo service-port 3708
+interface gpon 0/1
+ont delete 13 24
+
+
+
